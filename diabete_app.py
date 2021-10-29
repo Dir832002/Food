@@ -81,7 +81,7 @@ td:hover .url {
 
 #--------------------------------------------------------------------------------------------------------------------
 def food_caract_entree():
-    code = st.text_input("Entrer le code barre", 3560071083472)
+    code = st.text_input("Entrer le code barre", 3198172000120)
 
 
     data={
