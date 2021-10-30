@@ -6,11 +6,24 @@ from PIL import Image
 from IPython.core.display import display,HTML
 
 
+st.set_page_config(
+    page_title="DIABETE-SCORE",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    page_icon = 'images/da.png',
+)
+
+st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
+
 
 image = Image.open("images/da.png")
 newsize = (212, 116)
 image = image.resize(newsize)
 st.image(image,'')
+
 
 st.subheader("Mon application DIABETE-SCORE")
 
