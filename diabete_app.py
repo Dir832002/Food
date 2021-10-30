@@ -81,7 +81,7 @@ td:hover .url {
 
 #--------------------------------------------------------------------------------------------------------------------
 def food_caract_entree():
-    code = st.text_input("Entrer le code barre", 3198172000120)
+    code = st.text_input("Entrer le code barre", 3560071083472)
 
 
     data={
@@ -97,9 +97,9 @@ input_df=food_caract_entree()
 
 #Transformer les données d'entrée en données adaptées à notre modèle
 #importer la base de données
-df=pd.read_csv('df_foods.csv')
+df=pd.read_csv('df_food.csv')
 
-columns = ["code", "energy_100g", "sugars_100g", "saturated-fat_100g",
+columns = ["code", "energy_100g", "sugars_100g", "saturated_fat_100g",
            "salt_100g", "sodium_100g", "fiber_100g", "proteins_100g"]
 
 donnee_entree=pd.concat([input_df, df[columns]])
@@ -107,7 +107,9 @@ donnee_entree=pd.concat([input_df, df[columns]])
 donnee_entree=donnee_entree[:1]
 
 
-columns_result = ['image_url', 'code', 'product_name','pnns_groups_2', 'nutriscore_grade', 'ecoscore_grade_fr', 'nova_group', 'sugars_100g']
+columns_result = ['image_url', 'code', 'product_name','pnns_groups_2', 'nutriscore_grade',
+                  'ecoscore_grade_fr', 'nova_group', 'sugars_100g']
+
 donnee_entree['code'] = donnee_entree['code'].apply(str)
 donnee_sortie=pd.DataFrame(df[columns_result])
 
