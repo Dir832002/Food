@@ -103,7 +103,7 @@ df=pd.read_csv('df_food.csv')
 #--------------------------------------------------------------------------------------------------------------------
 def food_caract_entree():
     #code = st.text_input("Entrer le code barre", 3198172000120)
-    code = st.selectbox('Sélectionner un client', df['code'])
+    code = st.selectbox('Sélectionner un client', df['code'].head(3000))
 
 
     data={
