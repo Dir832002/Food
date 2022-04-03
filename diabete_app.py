@@ -96,9 +96,6 @@ td:hover .url {
 
 #--------------------------------------------------------------------------------------------------------------------
 
-input_df=food_caract_entree()
-
-
 #Transformer les données d'entrée en données adaptées à notre modèle
 #importer la base de données
 df=pd.read_csv('df_food.csv')
@@ -107,6 +104,8 @@ df=pd.read_csv('df_food.csv')
 def food_caract_entree():
     #code = st.text_input("Entrer le code barre", 3198172000120)
     code = st.selectbox('Sélectionner un client', df['code'])
+    
+input_df=food_caract_entree()
 
 
     data={
