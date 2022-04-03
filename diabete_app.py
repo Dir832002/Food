@@ -93,17 +93,7 @@ td:hover .url {
 </style>
 """, unsafe_allow_html=True)
 
-#--------------------------------------------------------------------------------------------------------------------
-def food_caract_entree():
-    code = st.text_input("Entrer le code barre", 3198172000120)
 
-
-    data={
-        'code':code,
-    }
-
-    food_features = pd.DataFrame(data,index=[0])
-    return food_features
 #--------------------------------------------------------------------------------------------------------------------
 
 input_df=food_caract_entree()
@@ -112,6 +102,19 @@ input_df=food_caract_entree()
 #Transformer les données d'entrée en données adaptées à notre modèle
 #importer la base de données
 df=pd.read_csv('df_food.csv')
+
+#--------------------------------------------------------------------------------------------------------------------
+def food_caract_entree():
+    #code = st.text_input("Entrer le code barre", 3198172000120)
+    code = st.selectbox('Sélectionner un client', df['code'])
+
+
+    data={
+        'code':code,
+    }
+
+    food_features = pd.DataFrame(data,index=[0])
+    return food_features
 
 columns = ["code", "energy_100g", "sugars_100g", "saturated_fat_100g",
            "salt_100g", "sodium_100g", "fiber_100g", "proteins_100g"]
