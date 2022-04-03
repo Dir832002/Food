@@ -104,8 +104,6 @@ df=pd.read_csv('df_food.csv')
 def food_caract_entree():
     #code = st.text_input("Entrer le code barre", 3198172000120)
     code = st.selectbox('Sélectionner un client', df['code'])
-    
-input_df=food_caract_entree()
 
 
     data={
@@ -114,6 +112,8 @@ input_df=food_caract_entree()
 
     food_features = pd.DataFrame(data,index=[0])
     return food_features
+
+input_df=food_caract_entree()
 
 columns = ["code", "energy_100g", "sugars_100g", "saturated_fat_100g",
            "salt_100g", "sodium_100g", "fiber_100g", "proteins_100g"]
