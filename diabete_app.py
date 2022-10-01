@@ -414,9 +414,58 @@ if len(donnee_sortie)!=0:
     st.write(nb_produit,': Produit(s)')
 
 
+
     if len(donnee_suggerer)!=0:
+        #st.write(
+         #   HTML(donnee_suggerer.to_html(index=False, escape=False, formatters=dict(nutriscore_grade=path_to_image_html,
+          #                                                                          image_url=path_to_image_url,
+           #                                                                         nova_group=path_to_image_html,
+            #                                                                        ecoscore_grade_fr=path_to_image_html,
+             #                                                                       Diabete_grade=path_to_image_html))))
+
+
+        # Number of entries per screen
+        N = 6
+
+        # Streamlit runs from top to bottom on every iteraction so
+        # we check if `count` has already been initialized in st.session_state.
+
+        # If no, then initialize count to 0
+        # If count is already initialized, don't do anything
+        if 'count' not in st.session_state:
+            st.session_state.count = 0
+
+        data = donnee_suggerer
+        last_page = len(data) // N
+        # Add a next button and a previous button
+
+        prev, page, next = st.columns([1, 1, 1])
+
+        if next.button("Next"):
+            if st.session_state.count >= last_page - 1:
+                st.session_state.count = 0
+            else:
+                st.session_state.count += 1
+
+        if prev.button("Previous"):
+
+            if st.session_state.count - 1 < 0:
+                st.session_state.count = last_page - 1
+            else:
+                st.session_state.count -= 1
+
+        # Get start and end indices of the next page of the dataframe
+        start_idx = st.session_state.count * N
+        end_idx = (1 + st.session_state.count) * N
+
+        # Index into the sub dataframe
+        sub_df = data.iloc[start_idx:end_idx]
+
+        page.write('Page : '+str(st.session_state.count+1)+'/'+str(last_page))
+
+        #st.write(sub_df)
         st.write(
-            HTML(donnee_suggerer.to_html(index=False, escape=False, formatters=dict(nutriscore_grade=path_to_image_html,
+            HTML(sub_df.to_html(index=False, escape=False, formatters=dict(nutriscore_grade=path_to_image_html,
                                                                                     image_url=path_to_image_url,
                                                                                     nova_group=path_to_image_html,
                                                                                     ecoscore_grade_fr=path_to_image_html,
