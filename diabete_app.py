@@ -90,6 +90,24 @@ td:hover .url {
   height:250px;
 }
 
+button.css-qbe2hs {
+background: #0066A2;
+color: white;
+border-style: outset;
+border-color: #EFF6FF;
+height: 40px;
+font: bold 15px arial, sans-serif;
+text-shadow:none;
+height:35px;
+}
+
+button.css-qbe2hs:active {
+position: relative;
+top: 1px;
+background: red;
+}
+
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -438,21 +456,21 @@ if len(donnee_sortie)!=0:
         data = donnee_suggerer
         last_page = len(data) // N
         # Add a next button and a previous button
+        _ , prev,page,next, _ = st.columns([3,2,5/2,2,1])
 
-        prev, page, next = st.columns([1, 1, 1])
-
-        if next.button("Next"):
+        if next.button("Next ⏭"):
             if st.session_state.count >= last_page - 1:
                 st.session_state.count = 0
             else:
                 st.session_state.count += 1
 
-        if prev.button("Previous"):
+        if prev.button("⏮ Back"):
 
             if st.session_state.count - 1 < 0:
                 st.session_state.count = last_page - 1
             else:
                 st.session_state.count -= 1
+
 
         # Get start and end indices of the next page of the dataframe
         start_idx = st.session_state.count * N
