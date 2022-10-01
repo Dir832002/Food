@@ -380,7 +380,7 @@ if len(donnee_sortie)!=0:
 
 
     nb_produit = donnee_suggerer.shape[0]
-    donnee_suggerer=donnee_suggerer[:100]
+    #donnee_suggerer=donnee_suggerer[:100]
 #Remplacer les nan
     donnee_suggerer['image_url'].fillna(value='https://hearhear.org/wp-content/uploads/2019/09/no-image-icon.png',
                                             inplace=True)
