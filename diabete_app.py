@@ -90,7 +90,7 @@ td:hover .url {
   height:250px;
 }
 
-button.css-qbe2hs {
+button.css-1cpxqw2 {
 background: #0066A2;
 color: white;
 border-style: outset;
@@ -101,7 +101,7 @@ text-shadow:none;
 height:35px;
 }
 
-button.css-qbe2hs:active {
+button.css-1cpxqw2:active {
 position: relative;
 top: 1px;
 background: red;
