@@ -23,15 +23,29 @@ footer {visibility: hidden;}
 image = Image.open("images/da.png")
 newsize = (212, 116)
 image = image.resize(newsize)
-st.image(image,'')
+left, mid ,right = st.columns([1,1, 1])
 
-
-st.subheader("Mon application DIABETE-SCORE")
+with mid:
+    #image_logo = image_logo.resize(newsize)
+    st.image(image, '')
+    st.subheader("Mon application DIABETE-SCORE")
+#Fin Image logo entreprise----------------------------------------------------------------------------------------------
 
 
 #Style CSS
 st.write("""
 <style>
+.sidebar-content {
+padding-top: 30px;
+}
+.main .block-container {
+padding-top: 30px;
+}
+
+div.css-1kyxreq {
+  text-align: center;
+  vertical-align: middle;
+}
 
 table {
 font-size:13px !important;
