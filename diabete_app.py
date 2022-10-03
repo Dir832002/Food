@@ -42,7 +42,7 @@ padding-top: 30px;
 padding-top: 30px;
 }
 
-div.css-1kyxreq {
+div.css-ocqkz7 {
   text-align: center;
   vertical-align: middle;
 }
