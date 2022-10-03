@@ -47,6 +47,10 @@ div.css-ocqkz7 {
   vertical-align: middle;
 }
 
+div.css-ocqkz7 img{
+margin-left:45px;
+}
+
 table {
 font-size:13px !important;
 border:3px solid #6495ed;
